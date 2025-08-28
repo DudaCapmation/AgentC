@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent C</title>
+  <link rel="stylesheet" href="{% static 'css/chat.css' %}" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <button id="panel-toggle" class="icon-btn" aria-label="Toggle panel">☰</button>
+      <a class="logo" href="/">
+        <span class="logo-mark">AC</span>
+        <span class="logo-text">Agent C</span>
+      </a>
+    </div>
+
+    <div class="topbar-right">
+      <button id="clear-btn" class="ghost-btn" title="Clear chat">Clear</button>
+    </div>
+  </header>
+
+  <!-- Side panel (fixed to left) -->
+  <aside id="side-panel" class="side-panel">
+    <div class="panel-header">
+      <h3>Menu</h3>
+    </div>
+    <nav class="panel-body">
+      <ul>
+        <li><a href="/admin/" target="_blank" rel="noopener">Django Admin</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-area">
+    <div id="error-banner" class="error-banner hidden"></div>
+
+    <div id="chat-window" class="chat-window" aria-live="polite">
+      <!-- Empty-slate message will be injected by JS if no messages -->
+    </div>
+
+    <footer class="chat-footer">
+      <div class="footer-inner">
+        <div id="typing-indicator" class="typing-indicator hidden">Assistant is typing</div>
+        <textarea id="user-input" rows="2" placeholder="Type your message..."></textarea>
+        <div class="controls">
+          <button id="send-btn" class="primary-btn">Send</button>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>
